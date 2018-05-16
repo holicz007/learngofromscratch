@@ -29,3 +29,28 @@ func (d deck) print() {
 		fmt.Println(i, card)
 	}
 }
+
+/*
+	functions นี้ไม่จำเป็นต้องใช้ Receiver Fucntions เพราะ เป็นขั้นตอนการสร้าง
+	ต้องสรา้งก่อนสิถึงจะเรียกใช้ methods ของตัวมันเองได้ถูกมั้ย ?
+*/
+
+func newDeck() deck {
+	cards := deck{}
+
+	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Club"}
+	cardValues := []string{"Ace", "Two", "Three", "Four"}
+
+	/*
+		สังเกตุที่ _ ใน loop ปกติมันจะต้องเป็นค่าของ index แต่ถ้าเราไม่ได้ใข้ตัวแปรนั้น ๆ
+		Go จะบอกว่ามัน Error เราสามารถไม่ใช้ค่านั้น ๆ ได้ด้วยการใช้ _ ที่ตัวแปรที่มีการคืนค่า
+		หรือส่งค่าได้เพื่อบอก Go ว่าเราไม่ต้องการที่จะใช้ค่านั้น ๆ
+	*/
+	for _, suit := range cardSuits {
+		for _, values := range cardValues {
+			cards = append(cards, values+" of "+suit)
+		}
+	}
+
+	return cards
+}

@@ -1,0 +1,49 @@
+package main
+
+import "fmt"
+
+/*
+	เราสามารถประกาศตัวแปรนอก functions ได้
+	แต่ต้อง ประกาศแบบ var เท่านั้น
+
+	var values string
+
+*/
+
+func main() {
+
+	/*
+			การประกาศตัวแปรในภาษา GO จะเริ่มจาก var ชื่อตัวแปร ประเภทของตัวแปร = ค่าของตัวแปร
+
+			ตัวอย่าง var card string = "Ace of Spades" // การประกาศแบบทั่วไป
+
+
+			ตัวอย่าง Basic Data Type ภายใน Go
+
+
+		 	var mInt int = 1
+
+		 	var mBool bool = false
+
+		 	var mFloat float64 = 1.4142
+
+	*/
+
+	/*
+		แต่เราจะประกาศแบบนี้ Complier จะรู้ว่าเราต้องการสร้างตัวแปรชื่อ card := ค่าของตัวแปร โดย ไทป์ของตัวแปรจะขึ้นอยู่กับค่าที่เราใส่เข้าไป
+		โดยที่ := ใช้ในการประกาศตัวแปรครั้งแรกแต่ถ้าต้องการเปลี่ยนแปลงค่าใช้ = อย่างเดียว
+
+		สามารถดูตัวอย่างได้จากด้านล่าง
+	*/
+
+	card := "Ace of Spades" /* init variables */
+
+	card = "Five Of Diamonds" /* assign new values to varialbles */
+
+	fmt.Println(card)
+
+	/*
+		หรือ var user = "somchai" แบบนี้ก็ได้
+	*/
+
+}

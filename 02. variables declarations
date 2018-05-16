@@ -17,9 +17,7 @@ func main() {
 
 			ตัวอย่าง var card string = "Ace of Spades" // การประกาศแบบทั่วไป
 
-
 			ตัวอย่าง Basic Data Type ภายใน Go
-
 
 		 	var mInt int = 1
 

@@ -34,9 +34,8 @@ func (d deck) print() {
 
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
+
 
 func main() {
     /*

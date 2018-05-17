@@ -1,0 +1,39 @@
+slice : Index เริ่มต้นจาก 0 เหมือนกับภาษาอื่น ๆ 
+
+การเข้าถึงข้อมูลใน slice แบบ Individual 
+
+    ex fruits := []string{"apple","banana","grape"}
+
+    /*
+        slice[index]
+    */
+
+    fruits[0] --> "apple"
+    fruits[3] --> "grape"
+
+การเข้าถึงข้อมูลใน slice แบบ length 
+
+    /* 
+        slice[startLength:endLength]
+
+        endLength : หมายถึงจำนวนที่จะเอาเริ่มต้นจาก startLength ไม่ใช่ index สุดท้ายนะ 
+    */
+
+    fruits[0:2] --> "apple","banana"
+
+    หรือ ถ้าเราจะเอาตั้งแต่แรกถึง length ที่เราต้องการ
+
+    fruits[:endLength]
+
+    หรือ ถ้าเราจะเอาตั้งแต่ Index ที่ต้องการจนถึงสุดท้ายเราก็สามารถทำได้แบบนี้ 
+
+    fruits[2:] มันจะเอาตั้งแต่ index ที่ 2 แทน 
+
+**** startLength คือเอาตั้งแต่ Index ที่เท่าไร 
+     endLength คือเอาจำนวนเท่าไรเริ่มต้นจาก Index (นับตัวแรกเป็น 1 ) ****     
+
+
+
+
+
+

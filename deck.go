@@ -53,4 +53,34 @@ func newDeck() deck {
 	}
 
 	return cards
+
+}
+
+/*
+	การประกาศ Parameters ของ functions ใน Go
+	(ชื่อตัวแปน ประเภทของตัวแปร , ชื่อตัวแปร ประเภทของตัวแปร)
+*/
+
+/*
+	Go functions สามารถคืนค่าได้มากกว่า 1 ค่าโดยสามารถทำได้ดังนี้
+
+	func functionName(some parameter) (return values 1 , return values 2) {
+		// do somethings stuff
+
+		return values1, values2
+	}
+
+*/
+
+/*
+	การรับค่าจาก functions ที่มีการ return หลายค่า
+	ตัวแปร1 , ตัวแปร2 := function() (v1 , v2)
+
+		ตัวแปร1 รับค่าจาก v1
+		ตัวแปร2 รับค่าจาก v2
+
+*/
+
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
 }

@@ -23,8 +23,21 @@
 
 */
 
-ex
+ตัวอย่างการประกาศฟังก์ชั่นแบบคืนค่ากลับหลายค่า
 
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
+}
+
+/*
+    ถ้าหาก functions ของเราอาจจะมีการ error ได้เช่นการเชื่อมต่อกับ I/O เราสามารถ return error ออกมาได้
+*/
+
+ตัวอย่าง functions ที่มีการคือค่าเป็น error 
+
+func (d deck) saveToFile(fileName string) error {
+	return ioutil.WriteFile(fileName, []byte(d.toString()), 0666) /* ทำไมเรา return ioutil ใน doc ฟังก์ชั่น WriteFile มัน คืนค่า Error ออกมาด้วย เราเลย คืนค่าออกไปได้เลย */
+	/*
+		0666 คือ permission แบบ Unix
+	*/
 }

@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil" /* ioutil เป็น sub package ของ io */
+	"strings"
 )
 
 /*
@@ -83,4 +85,23 @@ func newDeck() deck {
 
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
+}
+
+func (d deck) toString() string {
+	/*
+		Join : การรวม String เข้าด้วยกันโดย
+		Join([]string , ตัวแบ่งระหว่างค่า)
+	*/
+	return strings.Join([]string(d), ",")
+}
+
+func (d deck) saveToFile(fileName string) error {
+	return ioutil.WriteFile(fileName, []byte(d.toString()), 0666)
+	/*
+		0666 คือ permission แบบ Unix
+	*/
+}
+
+func newDeckFromFile() {
+
 }

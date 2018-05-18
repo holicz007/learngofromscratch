@@ -41,3 +41,7 @@ func (d deck) saveToFile(fileName string) error {
 		0666 คือ permission แบบ Unix
 	*/
 }
+
+/*
+	error : ถ้าหากไม่มี error จะคืนค่าเป็น null
+*/

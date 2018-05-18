@@ -3,7 +3,10 @@ package main
 import (
 	"fmt"
 	"io/ioutil" /* ioutil เป็น sub package ของ io */
+	"math/rand"
+	"os"
 	"strings"
+	"time"
 )
 
 /*
@@ -55,7 +58,6 @@ func newDeck() deck {
 	}
 
 	return cards
-
 }
 
 /*
@@ -102,6 +104,25 @@ func (d deck) saveToFile(fileName string) error {
 	*/
 }
 
-func newDeckFromFile() {
+func newDeckFromFile(filename string) deck {
+	bs, err := ioutil.ReadFile(filename)
+	if err != nil {
+		fmt.Println("Error : ", err)
+		os.Exit(1)
+	}
 
+	s := strings.Split(string(bs), ",") /* convert []byte into string */
+	return deck(s)
+}
+
+func (d deck) suffler() {
+
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
+
+	for i := range d {
+		newPosition := r.Intn(len(d) - 1) /* len(d) : คือฟังก์ชั่นสำหรับการหาขนาดของ slice */
+
+		d[i], d[newPosition] = d[newPosition], d[i]
+	}
 }

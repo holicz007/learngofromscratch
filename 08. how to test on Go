@@ -1,0 +1,29 @@
+การเขียน test ในภาษา Go
+Step 1 : สร้างไฟล์ชื่อเดียวกับชื่อไฟล์ที่เราจะทำการเทสตามด้วย _test.go 
+
+    ตัวอย่าง 
+
+    ต้องการเทส deck.go ให้เราทำการสร้างไฟล์สำหรับการเทสชื่อ deck_test.go 
+
+Step 2 : สร้าง functions ล้อไปกับ functions หลักที่ต้องการเทส Testตามด้วยชื่อ functions แต่ถ้าแยก functions หลาย ๆ อันให้มองจากการทำงานของกลุ่ม functions นั้น ๆ 
+
+    ตัวอย่าง
+
+    ต้องการเทส newDeck() ในไฟล์เทสก็ให้สร้าง TestNewDeck()     
+
+step 3 : 
+
+    implement methods ตาม conditions ที่เราต้องการทำการตรวจสอบ 
+
+    ตัวอย่าง
+
+    func TestNewDeck(t *testing.T) { /* โดยที่พารามิเตอร์ของการเทสต้องใส่แบบนี้ */
+	d := newDeck()
+
+	if len(d) != 16 {
+		t.Errorf("Expected deck lenght of 20, but got %d ", len(d))
+
+        /* พ่นค่าของการเทสผ่าน t */
+	}
+}
+

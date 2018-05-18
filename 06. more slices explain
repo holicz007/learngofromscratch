@@ -60,3 +60,5 @@ func (d deck) toString() string {
 	*/
 	return strings.Join([]string(d), ",")
 }
+
+slice ใน go ไม่มีฟังก์ชั่นสำหรับการ suffler เราจะต้องเขียนเอง 

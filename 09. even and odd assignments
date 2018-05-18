@@ -1,0 +1,39 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	l := createSlice()
+
+	for i := range l {
+		checkEvenOrOdd(l[i])
+	}
+}
+
+func createSlice() []int {
+	list := []int{}
+
+	for j := 1; j <= 10; j++ {
+		list = append(list, j)
+	}
+
+	return list
+
+}
+
+func checkEvenOrOdd(values int) {
+
+	if values%2 == 0 {
+		fmt.Println("values is even %v", values)
+	} else {
+		fmt.Println("values is odd %v", values)
+	}
+
+}
+
+func print(list []int) {
+	for _, values := range list {
+		fmt.Println(values)
+	}
+}

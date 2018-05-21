@@ -125,4 +125,5 @@ func (d deck) suffler() {
 
 		d[i], d[newPosition] = d[newPosition], d[i]
 	}
+
 }

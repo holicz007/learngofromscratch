@@ -1,0 +1,79 @@
+/*
+    structs : คือที่รวมข้อมูลเป็นก้อน ๆ เหสมือน class ที่ข้างในมีตัวแปรต่าง ๆ ให้เราเรียกใช้งาน 
+*/
+
+วิธีการใช้งาน structs 
+
+1. ประกาศ structs ขึ้นมาพร้อมกับระบุประเภทของแต่ละฟิลด์ใน structs 
+
+    type structName struct {
+        ตัวแปร1 ประเภทของตัวแปร1
+        ตัวแปร2 ประเภทของตัวแปร2
+    }
+
+    **** การประกาศ struct เราจะทำการประกาศไว้ด้านบนสุดของไฟล์ 
+
+2. กำหนดค่าให้ struct ที่เราทำการสร้างขึ้นมา 
+
+structName {key : values , key : values} 
+
+3. ถ้าหากเราต้องการทำให้ struct ของเรามันสามารถอัพเดทค่าต่าง ๆ ได้เราจำเป็นจะต้องสร้างตัวแปรของ struct นั้น ๆ ขึ้นมาก่อน 
+
+type contactInfo struct {
+	email  string
+	zipode int
+}
+
+type person struct {
+	firstName string
+	lastName  string
+	contact   contactInfo    
+}
+
+func main() {
+	
+    /* การสร้างตัวแปรของ struct รูปแบบที่ 1 */
+
+    alex := person{firstName: "Alex", lastName: "Anderson"}
+
+    /* การสร้างตัวแปรของ struct รูปแบบที่ 2 */
+
+    var alex person 
+
+    alex.firstName = "Alex"
+    alex.lastName = "Anderson"
+
+    /* การใช้งาน struct ซ้อน struct */
+
+    jim := person {
+		firstName: "Jim", 
+		lastName : "Party" , 
+		contact : contactInfo {
+			email : "jim@exmalple.com" , 
+			zipCode : 10250 ,
+		} , 
+	}
+}
+
+4. การแสดงค่า key/values ของ struct ทำได้โดยการ 
+
+fmt.Print("%+v" , structที่ต้องการแสดงค่า)
+
+/* 
+    เวลาเราสร้างตัวแปรขึ้นมาในภาษา go แล้วเราไม่ทำการกดหนดค่าให้ตัวแปรนั้น ๆ go จะกำหนดค่าเป็น zero-values 
+    type        zero values 
+
+    string          ""
+    int             0
+    float           0
+    bool            faluse 
+*/
+   
+/*
+    pointer และ วิธีการส่งค่าให้กับตัวแปรต่าง ๆ 
+
+    pass by values 
+        
+    pass by reference 
+
+*/    

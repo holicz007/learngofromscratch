@@ -1,0 +1,68 @@
+package main
+
+import (
+	"fmt"
+)
+
+type contactInfo struct {
+	email   string
+	zipCode int
+}
+
+type person struct {
+	firstName string
+	lastName  string
+	contact   contactInfo
+}
+
+func main() {
+
+	jim := person{
+		firstName: "Jim",
+		lastName:  "Party",
+		contact: contactInfo{
+			email:   "jim@exmalple.com",
+			zipCode: 10250,
+		},
+	}
+
+	/*
+		&variableName : คืนค่าเป็น address ของ ตัวแปรนั้น ๆ ที่เอา pointer ไปชี้
+		*pointer : คืนค่าเป็น values ของ address ที่ pointer ของตัวนั้น ๆ ไปชี้
+	*/
+
+	/*
+		เรามี values คือ jim เราต้องการ address ของ jim โดยการใช้ &jim
+		(สร้าง pointer ที่ชี้ไปยัง address ของ jim)
+	*/
+	
+    /*
+        แต่จริง ๆ แล้ว บรรทัดนี้ไม่ต้องประกาศก้ได้เวลาเราเรียกใช้ฟังก์ชั่นที่มี receiver เป็นไทป์ของ pointer go จะรู้เองว่าเราต้องใช้ root pointer ของไทป์นั้น ๆ 
+        jimPointer := &jim
+    */
+	jimPointer := &jim
+	// print(jimPointer) /* 0xc420059f40 */
+
+	jimPointer.updateName("Jimmy")
+	//jim.print()
+
+}
+
+/*
+	เราสร้าง functions ที่มี receiver เป็น pointer ไทป์เป็น person
+	pinterToPerson *person
+
+	*** Note : ถ้า *type คือบอกว่ารับ pointer type อะไร
+	           ถ้า *pointer คือการเอาค่าของ pointer ตัวนั้น ๆ ออกมาใช้
+*/
+func (pointerToPerson *person) updateName(newFirstName string) {
+	/*
+	*pointerToPerson : คือ values ของ address ที่ส่งเข้ามา
+	 */
+	(*pointerToPerson).firstName = newFirstName
+	// print ((*pointerToPerson).firstName) /* Jimmy */
+}
+
+func (p person) print() {
+	fmt.Printf("%+v", p)
+}

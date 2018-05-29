@@ -36,6 +36,4 @@ func TestSaveToDeckAndNewDeckFromFile(t *testing.T) {
 
 	os.Remove("_decktesting")
 
-
 }
-

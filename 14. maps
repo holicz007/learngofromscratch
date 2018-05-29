@@ -1,0 +1,101 @@
+/*
+			วิธีการสร้าง map
+
+			map[key type]values type {
+				key : values	,
+				key : values	,
+				key : values	, // ตัวสุดท้ายของสมาชิก map ก็ต้องมีคอมม่า
+			}
+
+			** key และ values ต้องเป็นไทป์เดียวกันทั้งหมด ถ้าคีย์เป็น int ก็ต้องเป็น int ทั้งหมด และถ้า values เป็น int ก้ต้องเป็น int ทั้งหมด
+			   แต่ key / values สามารถเป็นคนละไทป์ได้
+
+			   	** การกำหนดค่า key / values ให้ map แบบที่ 1
+
+			   	colors := map[string]string{
+					"red":   "#ff0000",
+					"green": "#4bf746",
+		}
+
+	*/
+
+	/*
+		Manipulating with Maps
+	*/
+
+	/*
+		การสร้าง map รูปแบบที่ 1
+
+			 var colors map[string]string //  ถ้าประกาสแบบนี้ go จะกำหนดค่า zero values
+
+			 จากนั้นเราสามารกำหนดค่า key และ values ได้
+	*/
+
+	/*
+		การสร้าง map รูปแบบที่ 2
+
+
+		colors := make(map[string]string) //  ถ้าประกาสแบบนี้ go จะกำหนดค่า zero values
+
+			 จากนั้นเราสามารกำหนดค่า key และ values ได้
+	*/
+
+	/*
+		การเพิ่มค่า key , values ให้กับ map แบบที่ 2
+
+		ตัวแปรmap[key] = values
+
+		ex. colors[:white] = "#fffffff"
+	*/
+
+	/*
+		การเข้าถึงค่าภายใน maps
+
+		ตัวแปรประเภทmap[key] ผลลัพธ์ => map[key:values]
+
+	*/
+
+	/*
+		การลบค่าภายใน map
+		เราสามารถลบข้อมูลภายใน map ได้โดยการ ใช้ built-in functions
+
+		delete(map , key)
+	*/
+
+	/*
+		advance with map
+
+		colors := map[String]string {
+			"red" : "#ff0000" ,
+			"green" : "#4bf745" ,
+			"white" : "#fffff" ,
+		}
+
+		func printMap(c map[string]string) {
+			for color , hex := range c {
+				fmt.Println("Hex code for" , color , "is" , hex)
+			}
+
+			// for key , values := map
+		}
+	*/
+
+	/*
+		ความแตกต่างระหว่าง map กับ struct
+
+		map
+			- คีย์ต้องเป็นไทป์เดียวกันทั้งหมด
+			- ค่าต้องเป็นไทป์เดียวกันทั้งหมด
+			- ต้องใช้คีย์ในการ iterate (วนฟอได้)
+			- เป็น pass by reference type
+			- ใช้ในการ นำเสนอข้อมูลที่มีความสัมพันธ์ระหว่าง key กับ values
+			- ไม่จำเป็นต้องรู้ key ในช่วง complie time
+
+		struct
+			- ค่าสามารถมีไทป์ได้หลายไทป์
+			- key ไม่ได้ใช้เป็น Index (วนฟอไม่ได้)
+			- เป็น Pass by values ไทป์
+			- จำเป็นต้องรู้ key ทั้งหมดตั้งแต่ complie time
+			- ใช้ในการนำเสนอ ข้อมูลที่มีความแตกต่างกันของไทป์ ของข้อมูล
+
+	*/
